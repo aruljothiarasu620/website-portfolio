@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Brief | ArulHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-body: #f7f7f8;
+            --bg-grid-color: rgba(0, 0, 0, 0.04);
+            --bg-container: #ffffff;
+            --text-black: #0f1115;
+            --text-gray: #64646b;
+            --text-light-gray: #9ba3af;
+            --accent-green: #10B981;
+            --accent-green-light: #d1fae5;
+            --border-light: rgba(0,0,0,0.08);
+            --font-heading: 'Manrope', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --shadow-lg: 0 24px 48px rgba(0,0,0,0.06);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            font-family: var(--font-body);
+            color: var(--text-gray);
+            line-height: 1.6;
+            background-image: linear-gradient(var(--bg-grid-color) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
+            background-size: 80px 80px;
+            padding: 4rem 1rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-gray);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--text-black);
+            transform: translateX(-4px);
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-black);
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .desc {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+
+        .form-card {
+            background: var(--bg-container);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        .form-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            color: var(--text-black);
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        label span.required {
+            color: #ef4444;
+            margin-left: 4px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            background: #fcfcfd;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-black);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-green);
+            background: white;
+            box-shadow: 0 0 0 4px var(--accent-green-light);
+        }
+
+        .radio-group, .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .option-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.85rem 1.25rem;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            background: #fcfcfd;
+            transition: var(--transition);
+        }
+
+        .option-item:hover {
+            border-color: var(--text-light-gray);
+        }
+
+        .option-item input {
+            margin-right: 1rem;
+            accent-color: var(--accent-green);
+            width: 18px;
+            height: 18px;
+        }
+
+        .option-item span {
+            font-weight: 600;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .option-item input:checked + span {
+            color: var(--text-black);
+        }
+
+        .option-item input:checked {
+            border-color: var(--accent-green);
+        }
+        
+        /* Highlight selected option */
+        .option-item:has(input:checked) {
+            border-color: var(--accent-green);
+            background: var(--accent-green-light);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--text-black);
+            color: white;
+            border: none;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .submit-btn i {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-card {
+                padding: 2rem 1.5rem;
+            }
+            body {
+                padding: 2rem 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        
+        <div class="header">
+            <h1>Quick Website Brief</h1>
+            <p class="desc">Fill this quick 2-min form so I can understand your business and build your website.</p>
+        </div>
+
+        <form class="form-card" id="briefForm">
+            <!-- 1. Name -->
+            <div class="form-group">
+                <label for="name">What's your name? <span class="required">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- 2. Business Name -->
+            <div class="form-group">
+                <label for="business_name">What's your business name?</label>
+                <input type="text" id="business_name" name="business_name" placeholder="e.g. Acme Corp">
+            </div>
+
+            <!-- 3. WhatsApp Number -->
+            <div class="form-group">
+                <label for="whatsapp">What's your WhatsApp number? <span class="required">*</span></label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+91 00000 00000" required>
+            </div>
+
+            <!-- 4. Offering -->
+            <div class="form-group">
+                <label for="offering">What service or product do you primarily offer?</label>
+                <input type="text" id="offering" name="offering" placeholder="e.g. Digital Marketing, Handmade Soap">
+            </div>
+
+            <!-- 5. Main Goal -->
+            <div class="form-group">
+                <label>What is the main goal of your website?</label>
+                <div class="radio-group">
+                    <label class="option-item">
+                        <input type="radio" name="goal" value="Generate Leads">
+                        <span>Generate Leads</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="goal" value="Drive Calls">
+                        <span>Drive Calls</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="goal" value="Direct Sales">
+                        <span>Direct Sales</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 6. Primary Action -->
+            <div class="form-group">
+                <label>What primary action should users take on your website?</label>
+                <div class="radio-group">
+                    <label class="option-item">
+                        <input type="radio" name="action" value="WhatsApp Message">
+                        <span>WhatsApp Message</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="action" value="Direct Call">
+                        <span>Direct Call</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="action" value="Fill Contact Form">
+                        <span>Fill Contact Form</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 7. Readiness -->
+            <div class="form-group">
+                <label>Do you have a logo and content (text, images) ready?</label>
+                <div class="radio-group">
+                    <label class="option-item">
+                        <input type="radio" name="readiness" value="Yes">
+                        <span>Yes, everything is ready</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="readiness" value="No">
+                        <span>Not yet</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="readiness" value="Need help">
+                        <span>I need help with content/design</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 8. References -->
+            <div class="form-group">
+                <label for="references">Any reference websites you like?</label>
+                <input type="text" id="references" name="references" placeholder="Links to websites you admire">
+            </div>
+
+            <!-- 9. Pages Needed -->
+            <div class="form-group">
+                <label>Which pages do you need for your website?</label>
+                <div class="checkbox-group">
+                    <label class="option-item">
+                        <input type="checkbox" name="pages" value="Home Page">
+                        <span>Home Page</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pages" value="Services/Products Page">
+                        <span>Services/Products Page</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pages" value="Contact Page">
+                        <span>Contact Page</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pages" value="About Us/Team Page">
+                        <span>About Us/Team Page</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pages" value="Gallery/Portfolio">
+                        <span>Gallery/Portfolio</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" name="pages" value="Landing Page">
+                        <span>One-page Landing Page</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 10. Budget -->
+            <div class="form-group">
+                <label>What is your budget range for this website project?</label>
+                <div class="radio-group">
+                    <label class="option-item">
+                        <input type="radio" name="budget" value="₹3K – ₹5K">
+                        <span>₹3K – ₹5K</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="budget" value="₹5K – ₹10K">
+                        <span>₹5K – ₹10K</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="budget" value="₹10K+">
+                        <span>₹10K+</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 11. Timeline -->
+            <div class="form-group">
+                <label>When do you need the website done?</label>
+                <div class="radio-group">
+                    <label class="option-item">
+                        <input type="radio" name="timeline" value="2–3 days (Urgent)">
+                        <span>2–3 days (Urgent)</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="timeline" value="1 week">
+                        <span>Within 1 week</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="timeline" value="Flexible">
+                        <span>Flexible (No immediate deadline)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 12. Anything else -->
+            <div class="form-group">
+                <label for="extra">Anything else you want to mention?</label>
+                <textarea id="extra" name="extra" placeholder="Tell me more about your vision..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span>Submit Brief</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('briefForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (data[key]) {
+                    if (!Array.isArray(data[key])) {
+                        data[key] = [data[key]];
+                    }
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            });
+
+            // Format WhatsApp Message
+            let message = "🚀 *New Website Brief - ArulHub*\n\n";
+            message += `👤 *Name:* ${data.name || 'Not provided'}\n`;
+            message += `🏢 *Business:* ${data.business_name || 'N/A'}\n`;
+            message += `📱 *WhatsApp:* ${data.whatsapp || 'Not provided'}\n\n`;
+            message += `🎯 *Service:* ${data.offering || 'N/A'}\n`;
+            message += `📈 *Goal:* ${data.goal || 'N/A'}\n`;
+            message += `👉 *Action:* ${data.action || 'N/A'}\n`;
+            message += `📦 *Ready:* ${data.readiness || 'N/A'}\n`;
+            message += `🔗 *References:* ${data.references || 'None'}\n\n`;
+            
+            if (data.pages) {
+                const pages = Array.isArray(data.pages) ? data.pages.join(", ") : data.pages;
+                message += `📄 *Pages:* ${pages}\n`;
+            }
+            
+            message += `💰 *Budget:* ${data.budget || 'N/A'}\n`;
+            message += `📅 *Timeline:* ${data.timeline || 'N/A'}\n\n`;
+            
+            if (data.extra) {
+                message += `📝 *Notes:* ${data.extra}`;
+            }
+
+            // Visual feedback
+            const btn = this.querySelector('.submit-btn');
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<span>Opening WhatsApp...</span> <i class="fas fa-spinner fa-spin"></i>';
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            // WhatsApp Redirect
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/918300528221?text=${encodedMessage}`;
+
+            // Simulate send and redirect
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+                
+                // Show completion
+                btn.innerHTML = '<span>Sent to WhatsApp!</span> <i class="fas fa-check"></i>';
+                btn.style.background = '#10B981';
+                
+                // Refresh or go back after a while
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.opacity = '1';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    window.location.href = 'index.html';
+                }, 3000);
+            }, 800);
+        });
+    </script>
+</body>
+</html>

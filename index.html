@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArulHub | Premium Digital Directory</title>
+  <meta name="description" content="ArulHub — A curated collection of premium local businesses and services." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Using Plus Jakarta Sans for body similar to Geist/Inter, and Playfair Display or a strong sans for Headings to mimic the bold aesthetic -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* =========================================
+       DESIGN TOKENS (Yashtex Inspiration)
+    ========================================= */
+    :root {
+      --bg-body: #f7f7f8;
+      --bg-grid-color: rgba(0, 0, 0, 0.04);
+      --bg-container: #ffffff;
+      --bg-footer: #111111;
+      
+      --text-black: #0f1115;
+      --text-gray: #64646b;
+      --text-light-gray: #9ba3af;
+      --text-white: #ffffff;
+      
+      --accent-green: #10B981; /* Emerald/Mint Green */
+      --accent-green-light: #d1fae5;
+      --border-light: rgba(0,0,0,0.06);
+      
+      --font-heading: 'Manrope', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-md: 0 12px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 24px 48px rgba(0,0,0,0.12);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      
+      --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* =========================================
+       GLOBAL RESET & BASE 
+    ========================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      font-family: var(--font-body);
+      color: var(--text-gray);
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Subtle grid background pattern */
+      background-image: linear-gradient(var(--bg-grid-color) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
+      background-size: 80px 80px;
+      background-position: center top;
+      position: relative;
+    }
+
+    /* Edge fading for the grid pattern */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to bottom, transparent 30%, var(--bg-body) 95%),
+                  radial-gradient(ellipse at center, transparent 30%, var(--bg-body) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--text-black);
+      line-height: 1.2;
+    }
+
+    .section-title {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    
+    .section-title span.dot {
+      color: var(--text-black);
+    }
+    
+    .section-subtitle {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--text-gray);
+      margin-top: -2rem;
+      margin-bottom: 4rem;
+      padding-left: 0.5rem;
+      border-left: 2px solid var(--border-light);
+    }
+
+    /* =========================================
+       FLOATING NAVBAR
+    ========================================= */
+    .navbar-wrapper {
+      position: sticky;
+      top: 1.5rem;
+      z-index: 100;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5rem;
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-light);
+      border-radius: 100px;
+      padding: 0.75rem 1rem 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      box-shadow: var(--shadow-sm);
+      animation: slideDownNav 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-black);
+      letter-spacing: -0.03em;
+    }
+
+    .nav-brand span {
+      color: var(--text-gray);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-gray);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-black);
+    }
+
+    .nav-cta {
+      background: var(--text-black);
+      color: var(--text-white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover {
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    
+    /* Search embedded in nav */
+    .nav-search {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: var(--bg-body);
+      border-radius: 100px;
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+    .nav-search:focus-within {
+      border-color: var(--text-light-gray);
+      background: white;
+    }
+    .nav-search i {
+      color: var(--text-gray);
+      font-size: 0.85rem;
+    }
+    .nav-search input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      width: 140px;
+      transition: var(--transition);
+    }
+    .nav-search input:focus {
+      width: 200px;
+    }
+
+    @keyframes slideDownNav {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* =========================================
+       HERO SECTION
+    ========================================= */
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem 8rem;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      margin-bottom: 2rem;
+      color: var(--text-black);
+    }
+
+    .hero-title .highlight {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    
+    /* The green underline drawn aesthetic */
+    .hero-title .highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0.1em;
+      width: 100%;
+      height: 6px;
+      background-color: var(--accent-green);
+      border-radius: 3px;
+      z-index: -1;
+      opacity: 0.8;
+      /* slight rotation for hand-drawn feel */
+      transform: rotate(-1deg);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-gray);
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+    
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--text-black);
+      color: var(--text-white);
+      padding: 1.25rem 2.5rem;
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    /* Subtle green glow on CTA hover */
+    .hero-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.3), 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .hero-cta i {
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* =========================================
+       PORTFOLIO / DIRECTORY SECTION
+    ========================================= */
+    .portfolio-section {
+      background: var(--bg-container);
+      border-radius: var(--radius-lg);
+      padding: 6rem 4rem;
+      margin: 0 2rem 6rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+
+    .filters-wrapper {
+      margin-bottom: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-gray);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--text-light-gray);
+      color: var(--text-black);
+    }
+
+    .filter-btn.active {
+      background: var(--text-black);
+      border-color: var(--text-black);
+      color: var(--text-white);
+    }
+
+    /* Card Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    /* Portfolio Card */
+    .card {
+      background: var(--bg-body);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: transparent;
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      padding-top: 60%; /* Aspect ratio */
+      background: #eaeaea;
+      overflow: hidden;
+    }
+
+    .card-img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    /* Floating pill badge on image */
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 0.8rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-black);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 2;
+    }
+
+    /* Colored dot in badge based on category */
+    .card-badge::before {
+      content: "";
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      background-color: var(--accent-green);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .card-price {
+      font-weight: 600;
+      color: var(--text-black);
+      font-size: 0.95rem;
+    }
+
+    .card-arrow {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-container);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-black);
+      transition: var(--transition);
+    }
+
+    .card:hover .card-arrow {
+      background: var(--text-black);
+      color: var(--text-white);
+      transform: translateX(4px);
+      border-color: var(--text-black);
+    }
+
+    /* Coming soon specific */
+    .card-empty {
+      background: transparent;
+      border: 1px dashed var(--border-light);
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: none;
+    }
+    .card-empty:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: var(--text-light-gray);
+    }
+    .card-empty i {
+      font-size: 2rem;
+      color: var(--text-light-gray);
+      margin-bottom: 1rem;
+    }
+
+    /* Searches empty state */
+    .empty-search {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .empty-search h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* =========================================
+       SERVICES & PRICING SECTION (Inspiration)
+    ========================================= */
+    .services-section, .pricing-section {
+      padding: 0 4rem 6rem;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .service-card {
+      background: var(--bg-body);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .service-card:hover {
+      background: var(--bg-container);
+      border-color: transparent;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-5px);
+    }
+    
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-green);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .price-card {
+      background: var(--bg-container);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .price-card:hover {
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .price-card.popular {
+      background: var(--accent-green-light);
+      border-color: transparent;
+    }
+
+    .price-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 0.5rem;
+    }
+    
+    .price-desc {
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: var(--text-light-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--text-black);
+      line-height: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-black);
+    }
+    
+    .price-features li i {
+      color: var(--accent-green);
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .price-features {
+      margin-bottom: 2.5rem;
+    }
+
+    .price-btn {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      color: white;
+    }
+    
+    .price-btn-primary {
+      background-color: var(--accent-green);
+    }
+    .price-btn-primary:hover {
+      background-color: #0d9668;
+    }
+    
+    .price-btn-secondary {
+      background-color: #1d4ed8;
+    }
+    .price-btn-secondary:hover {
+      background-color: #1e3a8a;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--accent-green);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    }
+
+
+    /* =========================================
+       DARK FOOTER SECTION
+    ========================================= */
+    .footer-wrapper {
+      padding: 0 1rem 1rem;
+    }
+
+    .footer {
+      background: var(--bg-footer);
+      border-radius: var(--radius-lg);
+      color: white;
+      padding: 5rem 4rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
+      justify-content: space-between;
+      margin-bottom: 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-left {
+      max-width: 400px;
+    }
+
+    .footer-title {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .footer-desc {
+      color: #9ba3af;
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Green pulsing availability badge */
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.75rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .pulse-dot {
+      width: 8px; height: 8px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      position: relative;
+    }
+    
+    .pulse-dot::after {
+      content: "";
+      position: absolute;
+      top: -4px; left: -4px;
+      right: -4px; bottom: -4px;
+      border-radius: 50%;
+      background-color: var(--accent-green);
+      animation: pulseAnim 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(0.5); opacity: 0.8; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 4rem;
+    }
+
+    .footer-col-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-col a {
+      color: #9ba3af;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .footer-col a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #6b7280;
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+    @media (max-width: 900px) {
+      .navbar {
+        gap: 1.5rem;
+        padding: 0.75rem 1.5rem;
+      }
+      .nav-links { display: none; }
+      
+      .portfolio-section {
+        padding: 4rem 2rem;
+        margin: 0 1rem 4rem;
+      }
+      
+      .footer {
+        padding: 4rem 2rem 2rem;
+      }
+      .footer-grid {
+        flex-direction: column;
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section-title { font-size: 2.5rem; flex-direction: column; gap: 0; }
+      .section-title span.dot { display: none; }
+      .section-title::after { content: "."; }
+      
+      .grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      
+      .footer-nav { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      
+      .nav-search { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================
+       NAVBAR
+  ========================================== -->
+  <div class="navbar-wrapper">
+    <nav class="navbar">
+      <a href="#" class="nav-brand">Arul<span>Hub</span></a>
+      
+      <div class="nav-links">
+        <a href="#portfolio" class="active">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      
+      <div class="nav-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search directory..." autocomplete="off">
+      </div>
+
+      <a href="brief.html" class="nav-cta">
+        Get Started <i class="fas fa-arrow-right"></i>
+      </a>
+    </nav>
+  </div>
+
+  <!-- =========================================
+       HERO
+  ========================================== -->
+  <header class="hero">
+    <h1 class="hero-title">
+      We showcase local brands that <span class="highlight">grow your business</span>
+    </h1>
+    <p class="hero-subtitle">
+      Premium local directory, service curation, and high-quality portfolios. We connect you with stunning, high-performing businesses tailored to scale your needs.
+    </p>
+    <a href="#portfolio" class="hero-cta">
+      <i class="fas fa-sparkles"></i> View Portfolio
+    </a>
+  </header>
+
+  <!-- =========================================
+       PORTFOLIO SECTION
+  ========================================== -->
+  <section id="portfolio" class="portfolio-section">
+    <h2 class="section-title">Portfolio<span class="dot">.</span></h2>
+    <p class="section-subtitle">Selected works. From local businesses to premium services.</p>
+
+    <!-- Filters -->
+    <div class="filters-wrapper" id="filterContainer">
+      <!-- Filter buttons injected by JS -->
+    </div>
+
+    <!-- Grid -->
+    <div class="grid" id="gridContainer">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- =========================================
+       SERVICES SECTION
+  ========================================== -->
+  <section id="services" class="services-section">
+    <h2 class="section-title">Services<span class="dot">.</span></h2>
+    <p class="section-subtitle">What we do best. Building the web of tomorrow.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-desktop"></i></div>
+        <h3 class="service-title">Web Design</h3>
+        <p class="service-desc">We craft beautiful, responsive websites that reflect your brand identity and captivate your audience.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+        <h3 class="service-title">E-Commerce</h3>
+        <p class="service-desc">Robust and scalable online stores designed to maximize conversions and deliver a seamless shopping experience.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <h3 class="service-title">SEO Optimization</h3>
+        <p class="service-desc">Boost your visibility on search engines with our proven SEO strategies tailored to drive organic traffic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       PRICING SECTION
+  ========================================== -->
+  <section id="pricing" class="pricing-section">
+    <h2 class="section-title" style="margin-bottom: 4rem;">Pricing<span class="dot">.</span></h2>
+    
+    <div class="pricing-grid">
+      <!-- Basic -->
+      <div class="price-card">
+        <h3 class="price-name">landing page</h3>
+        <p class="price-desc">A professional page with contact form and automatic emails. Quickly online.</p>
+        
+        <div class="price-label">SINGLE PAYMENT</div>
+        <div class="price-amount">₹2,999</div>
+        
+        <ul class="price-features">
+          <li><i class="fas fa-check"></i> 1 page (landing page)</li>
+          <li><i class="fas fa-check"></i> Contact form</li>
+          <li><i class="fas fa-check"></i> Automatic emails</li>
+          <li><i class="fas fa-check"></i> Mobile optimized</li>
+        </ul>
+        
+        <a href="brief.html" class="price-btn price-btn-primary">
+          Get Started <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Standard -->
+      <div class="price-card popular">
+        <div class="popular-badge">POPULAR</div>
+        <h3 class="price-name">standard</h3>
+        <p class="price-desc">The perfect start for professional demands. Ideal for established websites.</p>
+        
+        <div class="price-label">SINGLE PAYMENT</div>
+        <div class="price-amount">₹5,999</div>
+        
+        <ul class="price-features">
+          <li><i class="fas fa-check"></i> 3 pages</li>
+          <li><i class="fas fa-check"></i> Contact form & CMS</li>
+          <li><i class="fas fa-check"></i> SEO Setup</li>
+          <li><i class="fas fa-check"></i> Speed optimized</li>
+        </ul>
+        
+        <a href="brief.html" class="price-btn price-btn-secondary">
+          Get Started <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+  <div class="footer-wrapper">
+    <footer class="footer">
+      <div class="footer-grid">
+        
+        <!-- Left Column -->
+        <div class="footer-left">
+          <div style="color: var(--accent-green); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Get in touch</div>
+          <h2 class="footer-title">Ready for your project?</h2>
+          <p class="footer-desc">Let's get started together. Send me a request and receive a response within 12 hours.</p>
+          
+          <a href="brief.html" class="nav-cta" style="display: inline-flex; width: fit-content; margin-bottom: 2.5rem;">
+            Start a Project <i class="fas fa-arrow-right"></i>
+          </a>
+
+          <div class="availability-badge">
+            <div class="pulse-dot"></div>
+            Available for new projects
+          </div>
+        </div>
+
+        <!-- Right Column / Nav -->
+        <div class="footer-nav">
+          <div class="footer-col">
+            <div class="footer-col-title">Contact</div>
+            <ul>
+              <li><a href="https://wa.me/918300528221">+91 8300528221</a></li>
+              <li><a href="mailto:aruljothiarasu620@gmail.com">aruljothiarasu620@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Location</div>
+            <ul>
+              <li style="color: #9ba3af;">Tamil Nadu, India</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 ArulHub Web Design & Development.</div>
+        <div>All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+  <script>
+    // --- Data ---
+    const websitesData = [
+      {
+        id: 1,
+        name: "Mamitha's Restaurant",
+        description: "Where tradition meets taste — warm spices & unforgettable moments. Authentic Indian cuisine.",
+        imageUrl: "mamitha-restaurant.png",
+        link: "https://mamitha-s-restarunt.vercel.app/",
+        category: "RESTAURANT",
+        price: "₹3,000"
+      }
+      // Add more here easily
+    ];
+
+    const categories = ["ALL", "RESTAURANT", "SHOPPING", "EDUCATION", "SERVICES"];
+    let activeCategory = "ALL";
+    let searchQuery = "";
+
+    // --- DOM Elements ---
+    const filterContainer = document.getElementById("filterContainer");
+    const gridContainer = document.getElementById("gridContainer");
+    const searchInput = document.getElementById("searchInput");
+
+    // --- Render Filters ---
+    function renderFilters() {
+      filterContainer.innerHTML = "";
+      categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.className = `filter-btn ${activeCategory === cat ? "active" : ""}`;
+        // Map category names if needed
+        btn.innerText = cat === "ALL" ? "All Projects" : cat.charAt(0) + cat.slice(1).toLowerCase();
+        
+        btn.onclick = () => {
+          activeCategory = cat;
+          renderFilters();
+          renderCards();
+        };
+        filterContainer.appendChild(btn);
+      });
+    }
+
+    // --- Render Cards ---
+    function renderCards() {
+      gridContainer.innerHTML = "";
+
+      // Filter logic
+      const filtered = websitesData.filter(site => {
+        const matchesCat = activeCategory === "ALL" || site.category === activeCategory;
+        const matchesSearch = !searchQuery || 
+              site.name.toLowerCase().includes(searchQuery) ||
+              site.description.toLowerCase().includes(searchQuery);
+        return matchesCat && matchesSearch;
+      });
+
+      // Empty State
+      if (filtered.length === 0) {
+        if (searchQuery) {
+          gridContainer.innerHTML = `
+            <div class="empty-search">
+              <h3>No projects found</h3>
+              <p>Try adjusting your search terms.</p>
+            </div>
+          `;
+        } else {
+          gridContainer.innerHTML = `
+            <div class="card card-empty">
+              <i class="fas fa-folder-open"></i>
+              <h3 style="color: var(--text-black); font-size: 1.25rem;">Coming Soon</h3>
+              <p>More ${activeCategory.toLowerCase()} projects on the way.</p>
+            </div>
+          `;
+        }
+        return;
+      }
+
+      // Populate Cards
+      filtered.forEach(site => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.onclick = () => window.open(site.link, "_blank");
+
+        card.innerHTML = `
+          <div class="card-img-wrapper">
+            <div class="card-badge">${site.category}</div>
+            <img class="card-img" src="${site.imageUrl}" alt="${site.name}" onerror="this.src='https://picsum.photos/id/42/600/400'">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">${site.name}</h3>
+            <p class="card-desc">${site.description}</p>
+            <div class="card-footer">
+              <span class="card-price">From ${site.price}</span>
+              <div class="card-arrow"><i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></div>
+            </div>
+          </div>
+        `;
+        gridContainer.appendChild(card);
+      });
+    }
+
+    // --- Search Logic ---
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      renderCards();
+    });
+
+    // --- Initialize ---
+    renderFilters();
+    renderCards();
+  </script>
+</body>
+</html>
