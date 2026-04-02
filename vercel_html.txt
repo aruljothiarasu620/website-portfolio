@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mamitha | Boys Dress Shop – Pondicherry</title>
+  <meta name="description" content="Mamitha Boys Dress Shop — Premium shirts, pants, combo sets. Fast delivery across India. Order via WhatsApp.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#e63b2e;--red2:#c0392b;--black:#0d0d0d;--dark:#1a1a1a;--g700:#374151;--g500:#6b7280;--g200:#e5e7eb;--g100:#f3f4f6;--white:#fff;--green:#25D366;--font:'Inter',sans-serif}
+body{font-family:var(--font);background:#fff;color:var(--black);padding-bottom:72px}
+
+/* ---- MARQUEE ---- */
+.marquee-bar{background:var(--black);color:#fff;padding:8px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-block;animation:marquee 22s linear infinite}
+.marquee-track span{margin:0 32px;font-size:.75rem;letter-spacing:.07em}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ---- NAVBAR ---- */
+.navbar{background:#fff;border-bottom:1px solid var(--g200);position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:56px}
+.nav-left{display:flex;gap:16px}
+.nav-icon-btn{background:none;border:none;font-size:1.1rem;color:var(--black);cursor:pointer;position:relative;display:flex;align-items:center}
+.badge{position:absolute;top:-6px;right:-8px;background:var(--red);color:#fff;font-size:.6rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.logo{font-size:1.55rem;font-weight:900;letter-spacing:-.04em;color:var(--black);text-decoration:none}
+.logo span{color:var(--red)}
+.logo sub{font-size:.55rem;font-weight:400;color:var(--g500);display:block;text-align:center;letter-spacing:.08em}
+
+/* ---- OFFER BANNER ---- */
+.offer-banner{background:var(--red);color:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.offer-left{display:flex;align-items:center;gap:10px}
+.offer-left strong{font-size:.95rem;font-weight:800}
+.offer-left p{font-size:.72rem;opacity:.9}
+.countdown{display:flex;gap:6px;align-items:center}
+.cd-box{background:rgba(0,0,0,.25);border-radius:4px;padding:4px 8px;text-align:center;min-width:36px}
+.cd-box span{display:block;font-size:1rem;font-weight:800;line-height:1}
+.cd-box small{font-size:.55rem;opacity:.8;letter-spacing:.06em}
+.cd-sep{font-size:1.1rem;font-weight:800;opacity:.7}
+.shop-now-btn{background:#fff;color:var(--red);font-weight:700;font-size:.8rem;padding:8px 16px;border-radius:4px;border:none;cursor:pointer;white-space:nowrap;text-decoration:none}
+
+/* ---- STATS BAR ---- */
+.stats-bar{background:var(--black);color:#fff;display:flex;justify-content:space-around;padding:10px 0;overflow:hidden}
+.stat-item{text-align:center;padding:0 8px;border-right:1px solid #333;flex:1}
+.stat-item:last-child{border-right:none}
+.stat-item strong{display:block;font-size:.85rem;font-weight:800}
+.stat-item span{font-size:.65rem;color:#9ca3af;letter-spacing:.06em}
+
+/* ---- HERO ---- */
+.hero{position:relative;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);min-height:440px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.35}
+.hero-content{position:relative;z-index:2;padding:40px 20px;max-width:480px}
+.hero-badge-pill{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:30px;margin-bottom:14px;letter-spacing:.06em}
+.hero h1{font-size:2.2rem;font-weight:900;color:#fff;line-height:1.15;margin-bottom:10px}
+.hero h1 span{color:var(--red)}
+.hero p{color:#d1d5db;font-size:.9rem;margin-bottom:22px}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:.9rem;font-weight:700;padding:13px 24px;border-radius:6px;text-decoration:none;border:none;cursor:pointer;transition:.15s}
+.hero-cta:hover{background:var(--red2)}
+.save-pill{margin-top:16px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:#fff;font-size:.75rem;padding:6px 14px;border-radius:30px}
+.save-pill strong{color:#fbbf24}
+
+/* ---- SECTION TITLE ---- */
+.section-title{padding:28px 16px 14px;display:flex;justify-content:space-between;align-items:baseline}
+.section-title h2{font-size:1.25rem;font-weight:800}
+.section-title h2 span{color:var(--red)}
+.section-title a{font-size:.8rem;color:var(--red);text-decoration:none;font-weight:500}
+
+/* ---- CATEGORY PILLS ---- */
+.cat-scroll{display:flex;gap:10px;overflow-x:auto;padding:0 16px 16px;scrollbar-width:none}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-pill{flex-shrink:0;background:var(--g100);border:1.5px solid var(--g200);border-radius:40px;padding:9px 20px;font-size:.82rem;font-weight:600;color:var(--g700);cursor:pointer;transition:.15s;white-space:nowrap}
+.cat-pill.active,.cat-pill:hover{background:var(--black);border-color:var(--black);color:#fff}
+
+/* ---- PRODUCTS ---- */
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--g200)}
+@media(min-width:640px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.products-grid{grid-template-columns:repeat(4,1fr)}}
+.product-card{background:#fff;position:relative;cursor:pointer}
+.product-img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--g100)}
+.product-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.product-card:hover .product-img{transform:scale(1.06)}
+.p-badge{position:absolute;top:0;left:0;background:#16a34a;color:#fff;font-size:.6rem;font-weight:700;padding:4px 8px;letter-spacing:.04em;z-index:2}
+.p-badge.disc{left:auto;right:0;background:var(--red)}
+.product-info{padding:14px 12px}
+.product-name{font-size:.82rem;color:var(--g700);margin-bottom:8px;line-height:1.4;font-weight:600}
+.product-price{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.price-new{font-size:1.05rem;font-weight:800;color:var(--red2)}
+.price-old{font-size:.75rem;color:var(--g500);text-decoration:line-through}
+.save-tag{display:inline-block;background:#fee2e2;color:#dc2626;font-size:.65rem;font-weight:800;padding:2px 6px;border-radius:2px;margin-bottom:12px}
+.sizes-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.size-box{border:1px solid var(--g200);border-radius:3px;padding:3px 6px;font-size:.65rem;font-weight:600;color:var(--g700);cursor:pointer;background:#fff;transition:.15s}
+.size-box:hover{border-color:var(--g400)}
+.size-box.active{background:var(--black);color:#fff;border-color:var(--black)}
+.size-box.more{color:var(--red);border-color:#fca5a5;background:#fef2f2}
+.btn-add-cart{width:100%;background:#1e7b46;color:#fff;border:none;padding:10px;font-size:.8rem;font-weight:700;border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:.15s}
+.btn-add-cart:hover{background:#145c33}
+/* ---- REVIEWS ---- */
+.reviews-grid{display:flex;gap:12px;overflow-x:auto;padding:0 16px 20px;scrollbar-width:none}
+.reviews-grid::-webkit-scrollbar{display:none}
+.review-card{min-width:260px;background:#fafafa;border:1px solid var(--g200);border-radius:8px;padding:16px;flex-shrink:0}
+.r-stars{color:#fbbf24;font-size:.8rem;margin-bottom:8px}
+.r-text{font-size:.82rem;color:var(--g700);line-height:1.4;margin-bottom:12px;font-style:italic}
+.r-author{font-size:.75rem;font-weight:700;color:var(--black)}
+.no-results{grid-column:1/-1;text-align:center;padding:60px;color:var(--g500)}
+
+/* ---- TRUST SECTION ---- */
+.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 16px 24px}
+@media(min-width:540px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
+.trust-card{background:var(--g100);border-radius:12px;padding:16px;text-align:center}
+.trust-card i{font-size:1.4rem;color:var(--red);margin-bottom:8px}
+.trust-card h4{font-size:.82rem;font-weight:700;margin-bottom:2px}
+.trust-card p{font-size:.7rem;color:var(--g500)}
+
+/* ---- INSTA FEED ---- */
+.insta-feed{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.insta-cell{aspect-ratio:1;overflow:hidden;background:var(--g100);position:relative}
+.insta-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.insta-cell:hover img{transform:scale(1.06)}
+.insta-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:.2s;color:#fff;font-size:1.3rem}
+.insta-cell:hover .insta-overlay{opacity:1}
+
+/* ---- FOOTER ---- */
+footer{background:var(--black);color:#9ca3af;padding:32px 16px 24px}
+.footer-logo{font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:6px}
+.footer-logo span{color:var(--red)}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+@media(min-width:640px){.footer-grid{grid-template-columns:repeat(3,1fr)}}
+.footer-col h4{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.footer-col a,.footer-col p{font-size:.8rem;color:#9ca3af;text-decoration:none;display:block;margin-bottom:7px;transition:.15s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{margin-top:24px;border-top:1px solid #1f2937;padding-top:16px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.footer-bottom p{font-size:.72rem;color:#4b5563}
+.social-row{display:flex;gap:14px}
+.social-row a{color:#6b7280;font-size:1rem;text-decoration:none;transition:.15s}
+.social-row a:hover{color:#fff}
+
+/* ---- BOTTOM NAV ---- */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--g200);display:flex;z-index:200}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0;cursor:pointer;color:var(--g500);font-size:.6rem;font-weight:500;text-decoration:none;gap:3px;transition:.15s;border:none;background:none;position:relative}
+.bn-item i{font-size:1.1rem}
+.bn-item.active,.bn-item:hover{color:var(--red)}
+
+/* ---- CART DRAWER ---- */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:300;opacity:0;pointer-events:none;transition:.2s}
+.overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;top:0;right:0;width:340px;max-width:100vw;height:100%;background:#fff;z-index:301;transform:translateX(110%);transition:transform .28s ease;display:flex;flex-direction:column;box-shadow:-6px 0 24px rgba(0,0,0,.1)}
+.cart-drawer.open{transform:translateX(0)}
+.cd-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--g200)}
+.cd-head h3{font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.cd-close{background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--g500)}
+.cd-items{flex:1;overflow-y:auto;padding:8px 0}
+.cart-empty-msg{display:flex;flex-direction:column;align-items:center;justify-content:center;height:180px;color:var(--g500);gap:10px}
+.cart-empty-msg i{font-size:2rem}
+.ci{display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid var(--g100)}
+.ci-img{width:60px;height:76px;object-fit:cover;background:var(--g100);flex-shrink:0}
+.ci-info{flex:1}
+.ci-name{font-size:.78rem;color:var(--g700);margin-bottom:3px;line-height:1.4}
+.ci-price{font-size:.8rem;font-weight:700}
+.ci-qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.ci-qbtn{width:24px;height:24px;border:1px solid var(--g200);background:#fff;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:.15s}
+.ci-qbtn:hover{background:var(--black);color:#fff;border-color:var(--black)}
+.ci-qnum{font-size:.78rem;min-width:18px;text-align:center}
+.ci-del{background:none;border:none;color:var(--g400,#9ca3af);cursor:pointer;margin-left:auto;font-size:.7rem}
+.ci-del:hover{color:var(--red)}
+.cd-footer{padding:16px 20px;border-top:1px solid var(--g200)}
+.cd-total{display:flex;justify-content:space-between;font-weight:700;font-size:.9rem;margin-bottom:12px}
+.btn-wa{width:100%;background:var(--green);color:#fff;border:none;padding:13px;font-size:.88rem;font-weight:700;font-family:var(--font);cursor:pointer;border-radius:5px;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
+.btn-wa:hover{background:#128C7E}
+.btn-clear{width:100%;background:none;border:1px solid var(--g200);color:var(--g500);padding:9px;font-size:.78rem;font-family:var(--font);cursor:pointer;border-radius:5px;margin-top:6px;transition:.15s}
+.btn-clear:hover{border-color:var(--red);color:var(--red)}
+
+/* ---- ORDER MODAL ---- */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:400;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:#fff;width:440px;max-width:95vw;border-radius:8px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.18)}
+.modal-box h3{font-size:.95rem;font-weight:800;margin-bottom:5px}
+.modal-box .sub{font-size:.78rem;color:var(--g500);margin-bottom:18px}
+.mfield{margin-bottom:13px}
+.mfield label{display:block;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--g700);margin-bottom:5px}
+.mfield input{width:100%;padding:10px 13px;border:1px solid var(--g200);font-size:.86rem;font-family:var(--font);border-radius:4px;transition:.15s}
+.mfield input:focus{outline:none;border-color:var(--black)}
+.modal-actions{display:flex;gap:8px;margin-top:18px}
+.btn-cancel{flex:1;padding:11px;background:none;border:1px solid var(--g200);color:var(--g500);font-family:var(--font);font-size:.82rem;cursor:pointer;border-radius:4px}
+.btn-send{flex:2;padding:11px;background:var(--green);color:#fff;border:none;font-family:var(--font);font-size:.82rem;font-weight:700;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:7px}
+.btn-send:hover{background:#128C7E}
+
+/* ---- TOAST ---- */
+.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--black);color:#fff;padding:9px 20px;border-radius:40px;font-size:.78rem;font-weight:500;z-index:500;opacity:0;transition:.22s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---- SEARCH BAR ---- */
+.search-bar{padding:12px 16px;background:#fff;border-bottom:1px solid var(--g200)}
+.search-inner{display:flex;align-items:center;gap:10px;background:var(--g100);border-radius:40px;padding:9px 16px}
+.search-inner i{color:var(--g500);font-size:.9rem}
+.search-inner input{flex:1;border:none;background:none;font-size:.88rem;font-family:var(--font);outline:none;color:var(--black)}
+</style>
+</head>
+<body>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>👕 NEW ARRIVALS – SHIRTS & COMBOS</span><span>⚡ FREE DELIVERY ABOVE ₹1999</span>
+    <span>🔥 LIMITED TIME OFFER – UP TO 60% OFF</span><span>📦 FAST DELIVERY PAN-INDIA</span>
+    <span>✅ 100% QUALITY GUARANTEED</span><span>📲 ORDER ON WHATSAPP</span>
+    <span>👕 NEW ARRIVALS – SHIRTS & COMBOS</span><span>⚡ FREE DELIVERY ABOVE ₹1999</span>
+    <span>🔥 LIMITED TIME OFFER – UP TO 60% OFF</span><span>📦 FAST DELIVERY PAN-INDIA</span>
+    <span>✅ 100% QUALITY GUARANTEED</span><span>📲 ORDER ON WHATSAPP</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="nav-icon-btn" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
+    </div>
+    <a class="logo" href="#">mamitha<span>®</span><sub>Boys Dress Shop</sub></a>
+    <div class="nav-left">
+      <button class="nav-icon-btn" id="openCartBtn">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- SEARCH BAR (hidden by default) -->
+<div class="search-bar" id="searchBar" style="display:none">
+  <div class="search-inner">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Search shirts, pants, combos…">
+  </div>
+</div>
+
+<!-- OFFER BANNER -->
+<div class="offer-banner">
+  <div class="offer-left">
+    <div>
+      <strong>🔥 TODAY'S OFFER — UP TO 60% OFF</strong>
+      <p>Offer ends tonight at 10 PM</p>
+    </div>
+  </div>
+  <div class="countdown">
+    <div class="cd-box"><span id="cdH">06</span><small>HRS</small></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-box"><span id="cdM">00</span><small>MIN</small></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-box"><span id="cdS">00</span><small>SEC</small></div>
+  </div>
+  <a href="#products" class="shop-now-btn">SHOP NOW →</a>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><strong>2–4 DAY</strong><span>DELIVERY</span></div>
+  <div class="stat-item"><strong>5000+</strong><span>CUSTOMERS</span></div>
+  <div class="stat-item"><strong>10K+</strong><span>ORDERS</span></div>
+  <div class="stat-item"><strong>100%</strong><span>GENUINE</span></div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-bg" src="https://dummyimage.com/800x500/111827/374151&text=." alt="">
+  <div class="hero-content">
+    <div class="hero-badge-pill"><i class="fas fa-fire"></i> HOT RIGHT NOW</div>
+    <h1>Style That <span>Hits</span><br>Different</h1>
+    <p>Shirts • Pants • Combo Sets<br>Premium quality. Made for boys.</p>
+    <a href="#products" class="hero-cta"><i class="fas fa-shopping-bag"></i> SHOP NOW</a>
+    <div class="save-pill"><strong>SAVE UP TO 60%</strong> · Limited stock — order now</div>
+  </div>
+</div>
+
+<!-- TRUST SECTION -->
+<div style="padding:24px 16px 8px">
+  <div class="trust-grid">
+    <div class="trust-card"><i class="fas fa-truck"></i><h4>Fast Delivery</h4><p>2–4 days pan-India</p></div>
+    <div class="trust-card"><i class="fas fa-shield-alt"></i><h4>100% Genuine</h4><p>Authentic products</p></div>
+    <div class="trust-card"><i class="fas fa-undo"></i><h4>Easy Returns</h4><p>Hassle-free policy</p></div>
+    <div class="trust-card"><i class="fab fa-whatsapp"></i><h4>WhatsApp Order</h4><p>Quick & simple</p></div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="section-title"><h2>Shop by <span>Category</span></h2></div>
+<div class="cat-scroll" id="catRow">
+  <button class="cat-pill active" data-cat="all">✨ All</button>
+  <button class="cat-pill" data-cat="Shirts">👕 Shirts</button>
+  <button class="cat-pill" data-cat="Pants">👖 Pants</button>
+  <button class="cat-pill" data-cat="Combo sets">🎁 Combo Sets</button>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products">
+  <div class="section-title">
+    <h2>Our <span>Collection</span></h2>
+    <span id="pCount" style="font-size:.8rem;color:var(--g500)">12 products</span>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- REVIEWS SECTION -->
+<div class="section-title" style="margin-top:16px">
+  <h2>Customer <span>Reviews</span></h2>
+</div>
+<div class="reviews-grid">
+  <div class="review-card">
+    <div class="r-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+    <p class="r-text">"Amazing fit! The fabric quality is top-notch. My son loves the denim stretch jeans. Delivery was super fast."</p>
+    <div class="r-author">- Sanjay K. <i class="fas fa-check-circle" style="color:var(--green);margin-left:4px"></i> Verified Buyer</div>
+  </div>
+  <div class="review-card">
+    <div class="r-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+    <p class="r-text">"Very premium packaging and exactly as shown in images. The combo sets are totally worth the money."</p>
+    <div class="r-author">- Ramesh M. <i class="fas fa-check-circle" style="color:var(--green);margin-left:4px"></i> Verified Buyer</div>
+  </div>
+  <div class="review-card">
+    <div class="r-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+    <p class="r-text">"WhatsApp ordering was so easy! They cleared all my doubts about sizes before sending. Highly recommend."</p>
+    <div class="r-author">- Priya D. <i class="fas fa-check-circle" style="color:var(--green);margin-left:4px"></i> Verified Buyer</div>
+  </div>
+</div>
+
+<!-- INSTAGRAM FEED -->
+<div class="section-title" style="margin-top:32px">
+  <h2>📸 <span>Our Looks</span></h2>
+  <a href="https://wa.me/918300528221" target="_blank">WhatsApp Us</a>
+</div>
+<div class="insta-feed">
+  <div class="insta-cell"><img src="images/insta_look_1_1774533078933.png" alt="look1"><div class="insta-overlay"><i class="fab fa-whatsapp"></i></div></div>
+  <div class="insta-cell"><img src="images/insta_look_2_1774533097232.png" alt="look2"><div class="insta-overlay"><i class="fab fa-whatsapp"></i></div></div>
+  <div class="insta-cell"><img src="images/insta_look_3_1774533118211.png" alt="look3"><div class="insta-overlay"><i class="fab fa-whatsapp"></i></div></div>
+  <div class="insta-cell"><img src="images/insta_look_1_1774533078933.png" alt="look4"><div class="insta-overlay"><i class="fab fa-whatsapp"></i></div></div>
+  <div class="insta-cell"><img src="images/insta_look_2_1774533097232.png" alt="look5"><div class="insta-overlay"><i class="fab fa-whatsapp"></i></div></div>
+  <div class="insta-cell"><img src="images/insta_look_3_1774533118211.png" alt="look6"><div class="insta-overlay"><i class="fab fa-whatsapp"></i></div></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">mamitha<span>®</span></div>
+  <p style="font-size:.78rem;margin-bottom:4px">Boys Premium Dress Shop — Pondicherry, India</p>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+918300528221"><i class="fas fa-phone" style="margin-right:6px"></i>+91 83005 28221</a>
+      <a href="mailto:aruljothiarasu620@gmail.com"><i class="fas fa-envelope" style="margin-right:6px"></i>Email Us</a>
+      <a href="https://wa.me/918300528221" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px"></i>WhatsApp</a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#" onclick="filterCat('Shirts')">Shirts</a>
+      <a href="#" onclick="filterCat('Pants')">Pants</a>
+      <a href="#" onclick="filterCat('Combo sets')">Combo Sets</a>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <a href="#">Shipping Policy</a>
+      <a href="#">Return Policy</a>
+      <a href="#">Size Guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Mamitha Boys Dress Shop. All rights reserved.</p>
+    <div class="social-row">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/918300528221" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <a class="bn-item active" href="#"><i class="fas fa-home"></i>HOME</a>
+  <a class="bn-item" href="#products"><i class="fas fa-th-large"></i>SHOP</a>
+  <a class="bn-item" href="#" onclick="toggleSearch();return false"><i class="fas fa-search"></i>SEARCH</a>
+  <a class="bn-item" href="https://wa.me/918300528221" target="_blank"><i class="fab fa-whatsapp"></i>ORDER</a>
+  <button class="bn-item" id="openCartBtn2"><i class="fas fa-shopping-bag"></i>BAG</button>
+</nav>
+
+<!-- OVERLAY + CART -->
+<div class="overlay" id="overlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cd-head">
+    <h3>Your Bag (<span id="cartCount">0</span>)</h3>
+    <button class="cd-close" id="closeCart"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cd-items" id="cartItems">
+    <div class="cart-empty-msg"><i class="fas fa-shopping-bag"></i>Your bag is empty</div>
+  </div>
+  <div class="cd-footer">
+    <div class="cd-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn-wa" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+    <button class="btn-clear" id="clearBtn">Clear Bag</button>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <h3>Complete Your Order</h3>
+    <p class="sub">Fill your details — we'll send the order to WhatsApp instantly.</p>
+    <div class="mfield"><label>Full Name *</label><input type="text" id="custName" placeholder="e.g. Arjun Kumar"></div>
+    <div class="mfield"><label>Phone Number *</label><input type="tel" id="custPhone" placeholder="+91 XXXXX XXXXX"></div>
+    <div class="mfield"><label>Delivery Address *</label><input type="text" id="custAddr" placeholder="Street, City, Pincode"></div>
+    <div class="mfield">
+      <label>Payment Method *</label>
+      <select id="payMethod" style="width:100%;padding:10px 13px;border:1px solid var(--g200);border-radius:4px;font-family:var(--font);font-size:.86rem;background:#fff;outline:none;">
+        <option value="Online Payment (UPI/Cards)">Razorpay Secure (UPI, Cards, Wallets)</option>
+        <option value="PhonePe/GPay">PhonePe / GPay</option>
+        <option value="Bank Transfer">Bank Transfer (NEFT/IMPS)</option>
+        <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="cancelBtn">Cancel</button>
+      <button class="btn-send" id="sendBtn"><i class="fab fa-whatsapp"></i> Send Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ---- DATA ----
+const products = [
+  {id:1,name:"Classic Blue Oxford Shirt",price:899,mrp:1299,cat:"Shirts",badge:"NEW",
+   img:"images/blue_oxford_shirt_1774532987485.png"},
+  {id:2,name:"White Linen Casual Shirt",price:799,mrp:1099,cat:"Shirts",badge:null,
+   img:"images/white_linen_shirt_1774533009567.png"},
+  {id:3,name:"Black Slim Fit Shirt",price:999,mrp:1499,cat:"Shirts",badge:"SALE",
+   img:"images/white_linen_shirt_1774533009567.png"},
+  {id:4,name:"Denim Stretch Jeans",price:1299,mrp:1699,cat:"Pants",badge:null,
+   img:"images/denim_jeans_1774533027924.png"},
+  {id:5,name:"Cotton Formal Trousers",price:1099,mrp:1499,cat:"Pants",badge:null,
+   img:"images/formal_trousers_1774533043547.png"},
+  {id:6,name:"Cargo Jogger Pants",price:1399,mrp:1899,cat:"Pants",badge:"NEW",
+   img:"images/cargo_joggers_1774533059136.png"},
+  {id:7,name:"Summer Combo (Shirt+Short)",price:1999,mrp:2799,cat:"Combo sets",badge:"HOT",
+   img:"images/insta_look_1_1774533078933.png"},
+  {id:8,name:"Party Wear Combo Set",price:2499,mrp:3499,cat:"Combo sets",badge:"SALE",
+   img:"images/insta_look_3_1774533118211.png"},
+  {id:9,name:"Checked Casual Shirt",price:849,mrp:1199,cat:"Shirts",badge:null,
+   img:"images/blue_oxford_shirt_1774532987485.png"},
+  {id:10,name:"Slim Chino Pants",price:1199,mrp:1699,cat:"Pants",badge:null,
+   img:"images/formal_trousers_1774533043547.png"},
+  {id:11,name:"Navy Cotton Polo",price:749,mrp:999,cat:"Shirts",badge:null,
+   img:"images/insta_look_2_1774533097232.png"},
+  {id:12,name:"Festival Kurta Combo",price:2299,mrp:2999,cat:"Combo sets",badge:"NEW",
+   img:"images/insta_look_3_1774533118211.png"}
+];
+
+let cart=[], activeCat="all", searchQ="";
+
+// ---- HELPERS ----
+function $id(id){return document.getElementById(id)}
+function toast(msg){const t=$id("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2100)}
+function disc(p,m){return Math.round((m-p)/m*100)}
+
+// ---- COUNTDOWN ----
+(function countdown(){
+  const end=new Date(); end.setHours(22,0,0,0);
+  setInterval(()=>{
+    let diff=Math.max(0,end-new Date());
+    const h=Math.floor(diff/3600000); diff%=3600000;
+    const m=Math.floor(diff/60000); diff%=60000;
+    const s=Math.floor(diff/1000);
+    $id("cdH").textContent=String(h).padStart(2,"0");
+    $id("cdM").textContent=String(m).padStart(2,"0");
+    $id("cdS").textContent=String(s).padStart(2,"0");
+  },1000);
+})();
+
+// ---- SEARCH TOGGLE ----
+function toggleSearch(){
+  const bar=$id("searchBar");
+  bar.style.display=bar.style.display==="none"?"block":"none";
+  if(bar.style.display==="block") $id("searchInput").focus();
+}
+
+// ---- FILTER ----
+function filterCat(cat){
+  activeCat=cat;
+  document.querySelectorAll(".cat-pill").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+  renderProducts();
+}
+
+function getFiltered(){
+  return products.filter(p=>{
+    const matchCat=activeCat==="all"||p.cat===activeCat;
+    const matchQ=p.name.toLowerCase().includes(searchQ.toLowerCase());
+    return matchCat&&matchQ;
+  });
+}
+
+function renderProducts(){
+  const grid=$id("productsGrid");
+  const list=getFiltered();
+  $id("pCount").textContent=list.length+" product"+(list.length!==1?"s":"");
+  if(!list.length){grid.innerHTML='<div class="no-results"><i class="fas fa-search" style="font-size:2rem;display:block;margin-bottom:12px"></i>No products found</div>';return;}
+  grid.innerHTML=list.map(p=>{
+    const d=disc(p.price,p.mrp);
+    return `
+    <div class="product-card">
+      ${p.badge?`<div class="p-badge">${p.badge}</div>`:""}
+      <div class="p-badge disc">-${d}%</div>
+      <div class="product-img-wrap">
+        <img class="product-img" src="${p.img}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-price">
+          <span class="price-new">Rs. ${p.price.toFixed(2)}</span>
+          <span class="price-old">Rs. ${p.mrp.toFixed(2)}</span>
+        </div>
+        <div class="save-tag">Save ${d}%</div>
+        <div class="sizes-row">
+          <span class="size-box active">S</span>
+          <span class="size-box">M</span>
+          <span class="size-box">L</span>
+          <span class="size-box">XL</span>
+          <span class="size-box more">+1</span>
+        </div>
+        <button class="btn-add-cart" data-id="${p.id}"><i class="fas fa-shopping-bag"></i> ADD TO CART</button>
+      </div>
+    </div>`}).join("");
+
+  grid.querySelectorAll(".btn-add-cart").forEach(btn=>{
+    btn.addEventListener("click",e=>{e.stopPropagation();addToCart(+btn.dataset.id);});
+  });
+}
+
+// ---- CART ----
+function addToCart(id){
+  const p=products.find(x=>x.id===id); if(!p) return;
+  const ex=cart.find(x=>x.id===id);
+  ex?ex.qty++:cart.push({id:p.id,name:p.name,price:p.price,img:p.img,qty:1});
+  renderCart(); toast(`${p.name} added to bag`);
+}
+function changeQty(id,d){
+  const item=cart.find(x=>x.id===id); if(!item) return;
+  item.qty+=d;
+  if(item.qty<=0) cart=cart.filter(x=>x.id!==id);
+  renderCart();
+}
+function removeFromCart(id){cart=cart.filter(x=>x.id!==id);renderCart();}
+function clearCart(){cart=[];renderCart();}
+function cartTotal(){return cart.reduce((s,i)=>s+i.price*i.qty,0);}
+function cartCount(){return cart.reduce((s,i)=>s+i.qty,0);}
+
+function renderCart(){
+  const count=cartCount();
+  $id("cartCount").textContent=count;
+  $id("cartBadge").textContent=count;
+  $id("cartTotal").textContent="₹"+cartTotal();
+  const container=$id("cartItems");
+  if(!cart.length){container.innerHTML='<div class="cart-empty-msg"><i class="fas fa-shopping-bag"></i>Your bag is empty</div>';return;}
+  container.innerHTML=cart.map(i=>`
+    <div class="ci">
+      <img class="ci-img" src="${i.img}" alt="${i.name}">
+      <div class="ci-info">
+        <div class="ci-name">${i.name}</div>
+        <div class="ci-price">₹${i.price}</div>
+        <div class="ci-qty">
+          <button class="ci-qbtn" data-id="${i.id}" data-d="-1">−</button>
+          <span class="ci-qnum">${i.qty}</span>
+          <button class="ci-qbtn" data-id="${i.id}" data-d="1">+</button>
+        </div>
+      </div>
+      <button class="ci-del" data-rid="${i.id}"><i class="fas fa-trash-alt"></i></button>
+    </div>`).join("");
+  container.querySelectorAll(".ci-qbtn").forEach(b=>b.addEventListener("click",()=>changeQty(+b.dataset.id,+b.dataset.d)));
+  container.querySelectorAll(".ci-del").forEach(b=>b.addEventListener("click",()=>removeFromCart(+b.dataset.rid)));
+}
+
+// ---- CART DRAWER ----
+function openCart(){$id("overlay").classList.add("open");$id("cartDrawer").classList.add("open");}
+function closeCart(){$id("overlay").classList.remove("open");$id("cartDrawer").classList.remove("open");}
+
+// ---- ORDER MODAL ----
+function openModal(){if(!cart.length){toast("Your bag is empty!");return;}closeCart();$id("modalOverlay").classList.add("open");}
+function closeModal(){$id("modalOverlay").classList.remove("open");}
+function sendOrder(){
+  const name=$id("custName").value.trim(),phone=$id("custPhone").value.trim(),addr=$id("custAddr").value.trim();
+  if(!name||!phone||!addr){toast("Please fill all fields");return;}
+  const items=cart.map(i=>`• ${i.name} × ${i.qty} = ₹${i.price*i.qty}`).join("\n");
+  const pm=$id("payMethod").value;
+  const msg=`🛒 *NEW ORDER — MAMITHA BOYS DRESS SHOP* 🛒\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${addr}\n💳 *Payment:* ${pm}\n\n📦 *Items:*\n${items}\n\n💰 *Total: ₹${cartTotal()}*\n\n🙏 Thank you for shopping at Mamitha!`;
+  window.open(`https://wa.me/918300528221?text=${encodeURIComponent(msg)}`,"_blank");
+  closeModal(); clearCart();
+}
+
+// ---- EVENTS ----
+$id("openCartBtn").addEventListener("click",openCart);
+$id("openCartBtn2").addEventListener("click",openCart);
+$id("closeCart").addEventListener("click",closeCart);
+$id("overlay").addEventListener("click",closeCart);
+$id("clearBtn").addEventListener("click",clearCart);
+$id("checkoutBtn").addEventListener("click",openModal);
+$id("cancelBtn").addEventListener("click",closeModal);
+$id("sendBtn").addEventListener("click",sendOrder);
+$id("modalOverlay").addEventListener("click",e=>{if(e.target===$id("modalOverlay"))closeModal();});
+$id("searchInput").addEventListener("input",e=>{searchQ=e.target.value;renderProducts();});
+document.querySelectorAll(".cat-pill").forEach(b=>{
+  b.addEventListener("click",()=>filterCat(b.dataset.cat));
+});
+
+// ---- INIT ----
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
