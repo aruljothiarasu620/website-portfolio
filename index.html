@@ -1008,6 +1008,27 @@
           Get Started <i class="fas fa-arrow-right"></i>
         </a>
       </div>
+
+      <!-- Premium -->
+      <div class="price-card">
+        <h3 class="price-name">Premium UI</h3>
+        <p class="price-desc">High-end animations and complex logic. The ultimate digital masterpiece.</p>
+        
+        <div class="price-label">STARTING FROM</div>
+        <div class="price-amount">₹14,999</div>
+        
+        <ul class="price-features">
+          <li><i class="fas fa-check"></i> Advanced UI Animations</li>
+          <li><i class="fas fa-check"></i> Dynamic Motion Design</li>
+          <li><i class="fas fa-check"></i> Full Responsive Layout</li>
+          <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+        </ul>
+        
+        <a href="brief.html" class="price-btn" style="background-color: var(--text-black);">
+          Get Started <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -1072,6 +1093,7 @@
         name: "Mamitha's Restaurant",
         description: "Where tradition meets taste — warm spices & unforgettable moments. Authentic Indian cuisine.",
         imageUrl: "mamitha-restaurant.png",
+        relatedImageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600",
         link: "https://mamitha-s-restarunt.vercel.app/",
         category: "RESTAURANT",
         price: "₹5,999"
@@ -1081,14 +1103,44 @@
         name: "Sample Shirt Shop",
         description: "Premium quality shirts for every occasion. Discover your unique style with our curated collection.",
         imageUrl: "sample-shirt-shop.png",
+        relatedImageUrl: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&q=80&w=600",
         link: "https://sample-shirt-shop-1.vercel.app/",
         category: "SHOPPING",
         price: "₹5,999"
+      },
+      {
+        id: 3,
+        name: "Media Portfolio UI",
+        description: "Premium media portfolio with high-end animations and cinematic user experience.",
+        imageUrl: "media-portfolio.png",
+        relatedImageUrl: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=600",
+        link: "https://media-portfolio-omega.vercel.app/",
+        category: "ANIMATION",
+        price: "₹14,999"
+      },
+      {
+        id: 4,
+        name: "Luxury Hotel UI",
+        description: "Award-winning hotel web interface featuring immersive 3D-like animations and luxury aesthetics.",
+        imageUrl: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1000",
+        relatedImageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=600",
+        link: "https://ui-sample-hotel.vercel.app/",
+        category: "ANIMATION",
+        price: "₹14,999"
+      },
+      {
+        id: 5,
+        name: "Img to URL Tool",
+        description: "Full-stack image hosting solution. Upload images and get instant shareable URLs with a dedicated backend.",
+        imageUrl: "img-to-url.png",
+        relatedImageUrl: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=600",
+        link: "https://img-to-url-gamma.vercel.app/",
+        category: "APPLICATION",
+        price: "₹4,999"
       }
-      // Add more here easily
     ];
 
-    const categories = ["ALL", "RESTAURANT", "SHOPPING", "EDUCATION", "SERVICES"];
+    const categories = ["ALL", "RESTAURANT", "SHOPPING", "ANIMATION", "APPLICATION", "SERVICES", "EDUCATION"];
     let activeCategory = "ALL";
     let searchQuery = "";
 
@@ -1103,7 +1155,6 @@
       categories.forEach(cat => {
         const btn = document.createElement("button");
         btn.className = `filter-btn ${activeCategory === cat ? "active" : ""}`;
-        // Map category names if needed
         btn.innerText = cat === "ALL" ? "All Projects" : cat.charAt(0) + cat.slice(1).toLowerCase();
         
         btn.onclick = () => {
@@ -1119,7 +1170,6 @@
     function renderCards() {
       gridContainer.innerHTML = "";
 
-      // Filter logic
       const filtered = websitesData.filter(site => {
         const matchesCat = activeCategory === "ALL" || site.category === activeCategory;
         const matchesSearch = !searchQuery || 
@@ -1128,37 +1178,25 @@
         return matchesCat && matchesSearch;
       });
 
-      // Empty State
       if (filtered.length === 0) {
         if (searchQuery) {
-          gridContainer.innerHTML = `
-            <div class="empty-search">
-              <h3>No projects found</h3>
-              <p>Try adjusting your search terms.</p>
-            </div>
-          `;
+          gridContainer.innerHTML = `<div class="empty-search"><h3>No projects found</h3><p>Try adjusting your search terms.</p></div>`;
         } else {
-          gridContainer.innerHTML = `
-            <div class="card card-empty">
-              <i class="fas fa-folder-open"></i>
-              <h3 style="color: var(--text-black); font-size: 1.25rem;">Coming Soon</h3>
-              <p>More ${activeCategory.toLowerCase()} projects on the way.</p>
-            </div>
-          `;
+          gridContainer.innerHTML = `<div class="card card-empty"><i class="fas fa-folder-open"></i><h3>Coming Soon</h3><p>More projects on the way.</p></div>`;
         }
         return;
       }
 
-      // Populate Cards
       filtered.forEach(site => {
         const card = document.createElement("div");
         card.className = "card";
         card.onclick = () => window.open(site.link, "_blank");
 
         card.innerHTML = `
-          <div class="card-img-wrapper">
+          <div class="card-img-wrapper" onmouseenter="this.querySelector('.card-img-hover').style.opacity = '1'" onmouseleave="this.querySelector('.card-img-hover').style.opacity = '0'">
             <div class="card-badge">${site.category}</div>
             <img class="card-img" src="${site.imageUrl}" alt="${site.name}" onerror="this.src='https://picsum.photos/id/42/600/400'">
+            <img class="card-img card-img-hover" src="${site.relatedImageUrl}" alt="Related View" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 0.4s ease;">
           </div>
           <div class="card-content">
             <h3 class="card-title">${site.name}</h3>
